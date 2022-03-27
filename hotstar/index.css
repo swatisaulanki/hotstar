@@ -1,0 +1,110 @@
+body{
+    margin: 0;
+   background-color: #131a28;
+}
+#bigboss{
+    height:60px ;
+    background-color:black;
+     display: flex;
+     width: 100%;
+     margin:auto ;
+     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+     color: rgb(7, 70, 66);
+     font-size:16px;
+     font-weight: 700;
+     font-family: 'Open Sans', sans-serif;
+     overflow: hidden;
+ 
+}
+#container{
+    height:40px ;
+    display: flex;
+    width: 45%;
+    margin:auto ;
+
+    margin-top:7px;
+   
+   }
+   #searchdiv{
+      margin:12px 12px 0px 0px;
+
+   }
+
+
+   #anchor{
+       text-decoration: none;
+       color: rgb(235, 238, 237) ;
+      }
+      #anchor:hover{
+          background-color: rgb(7, 3, 56);
+      }
+   
+   #container>a>li{
+       list-style: none;
+       margin: 15px;
+       
+   }
+   #anchor:hover{
+       color: white;
+   }
+   /* this is body css */
+   
+input{
+    border-style:none ;
+    height: 30px;
+    width: 200px;
+    border-radius:10px;
+    margin-right:20px;
+}
+input:focus{
+    background-color:rgb(147, 180, 252);
+}
+#logo{
+    margin-top:10px;
+    margin-left:50px;
+}
+button{
+    border-style: none;
+    padding: 0px 20px;
+    height: 30px;
+    align-items: center;
+    background-color: darkblue;
+    border-radius:10px;
+    color: white;
+}
+button:hover{
+    background-color:rgb(192, 7, 7);
+}
+#movie{
+    height: 550px;
+    width: 100%;
+    margin: auto;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    border-radius: 5px;
+    display: flex;
+    margin-top: 10px;
+    
+
+}
+.poster{
+    width: 40%;
+    height: 450px;
+    margin: auto;
+    
+}
+.dis{
+    width: 55%;
+
+    height: 450px;
+    margin: auto;
+    padding-left: 50px;
+    color: rgb(133,229,198);
+    box-sizing: content-box;
+    
+}
+.poster>img{
+    height: 100%;
+    width: 100%;
+}
+
+

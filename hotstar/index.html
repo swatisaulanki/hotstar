@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OmdMovie</title>
+    <!-- <link rel="stylesheet" href="./index.css"> -->
+    <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+    <div id="bigboss"> 
+        <div>
+           <a href="./index.html"><img id="logo" src="https://secure-media.hotstarext.com/web-assets/prod/images/brand-logos/disney-hotstar-logo-dark.svg">    </a> 
+        </div>
+    <div id="container">
+        <a id="anchor" href="">
+            <li>Home</li>
+        </a>
+        <a id="anchor" href="./index.html">
+            <li>Movies</li>
+        </a>
+        <a id="anchor" href="./index.html">
+            <li>Disny+</li>
+        </a>
+        </a>
+        <a id="anchor" href="./index.html">
+            <li>Sports</li>
+        </a>
+        </a>
+        <a id="anchor" href="./index.html">
+            <li>Kids</li>
+        </a>
+        <a id="anchor" href="">
+            <li>Login</li>
+        </a>
+        <a id="anchor" href="">
+            <li>Signup</li>
+        </a>
+    </div>
+    <div id="searchdiv">
+   <input type="text" id="find" placeholder="Search Movies">
+   
+    <button onclick="submit()">Search</button>
+
+    </div>
+</div>
+ <div id="movie">
+    <img src="https://www.technicalfirstpost.in/wp-content/uploads/2020/10/Logo-1-780x470.jpg" alt="" height="100%" width="100%"> 
+ </div>
+</body>
+
+</html>
+<script>
+    function submit(){
+        let getmovie=document.querySelector('#find').value;
+        console.log(movie);
+        let url = `https://www.omdbapi.com/?t=${getmovie}&apikey=79338377`;
+        // console.log(url);
+        async function playlist(){
+
+        try{
+            let res= await fetch(url);
+            //fetch data from api
+            let data=await res.json()  //always type json in small letter
+            console.log("data:",data);
+            if(data.Response=="True"){
+                display(data)
+            }
+            else{
+                error()
+            }
+        }
+        catch(err){
+            console.log("err:",err);
+        }
+  }
+  playlist()
+
+
+    }
+    function error(){
+     document.getElementById("movie").innerHTML=""; //null
+     let img=document.createElement("img");
+     img.src="https://c.tenor.com/NpZyGNG3SLEAAAAM/this-content-is-not-available.gif";
+     document.getElementById("movie").append(img);
+
+    }
+
+    function display(object){
+        document.getElementById("movie").innerHTML='';
+        let movie = document.getElementById("movie")
+
+        let poster1 = document.createElement('div')
+        poster1.setAttribute('class','poster')
+        let dis = document.createElement('div')
+        dis.setAttribute('class','dis')
+
+        let img = document.createElement('img')
+        img.src = object.Poster;
+        poster1.append(img)
+
+        let name = document.createElement("h2");
+        name.innerHTML = `Title : ${object.Title}`;
+        let award = document.createElement("h3");
+        award.innerHTML = `Awards : ${object.Awards}`;
+        let rating = document.createElement("p");
+        rating.innerHTML = `IMDb rating : ${object.imdbRating}`;
+        let release = document.createElement("p");
+        release.innerHTML = `Release : ${object.Released}`;
+        let actors = document.createElement("p");
+        actors.innerHTML = `Actors : ${object.Actors}`;
+        let language = document.createElement("p");
+        language.innerHTML = `Language : ${object.Language}`;
+        if(object.imdbRating>8.5)
+        {
+            let a = document.createElement("h1")
+            a.style.color = "green";
+            
+            a.style.textDecoration = "underline";
+            a.innerHTML = "Recommended"
+            dis.append(a);
+        }
+        dis.append(name,language,release,award,rating,actors);
+
+        movie.append(poster1,dis)
+
+
+    }
+</script>
